@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FruitSoul – 100% Natural Fruit Powders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; font-family:'Poppins',sans-serif; background:#fff7e6; color:#4a1c1c; }
+    header { background:linear-gradient(135deg,#ffcc33,#c0392b); color:white; padding:40px 20px; text-align:center; }
+    header h1 { font-size:42px; margin:0; }
+    header p { font-size:18px; margin-top:10px; }
+
+    .container { max-width:1200px; margin:auto; padding:40px 20px; }
+
+    .products { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:25px; }
+    .card { background:white; border-radius:18px; box-shadow:0 10px 25px rgba(0,0,0,.1); padding:20px; text-align:center; }
+    .card img { width:100%; height:180px; object-fit:cover; border-radius:12px; }
+    .card h3 { margin:15px 0 5px; }
+    .price { font-weight:600; margin-bottom:10px; }
+
+    select, button { width:100%; padding:10px; border-radius:8px; border:1px solid #ddd; margin-top:10px; font-family:'Poppins'; }
+    button { background:#25D366; color:white; border:none; cursor:pointer; font-weight:600; }
+    button:hover { opacity:.9; }
+
+    .badges { display:flex; justify-content:center; gap:20px; margin:40px 0; font-weight:600; }
+
+    footer { background:#4a1c1c; color:white; text-align:center; padding:25px; }
+
+    .whatsapp-float { position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px 18px; border-radius:50%; font-size:22px; text-decoration:none; box-shadow:0 8px 20px rgba(0,0,0,.3); }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>FruitSoul Fruit Powders</h1>
+  <p>Delicious & Natural • 100% Pure • No Preservatives</p>
+</header>
+
+<div class="container">
+
+  <div class="badges">
+    <div>🌿 No Preservatives</div>
+    <div>🍯 No Added Sugar</div>
+    <div>🚚 No Delivery Charge</div>
+  </div>
+
+  <div class="products">
+
+    <!-- Banana -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1574226516831-e1dff420e12e" alt="Banana Powder">
+      <h3>Banana Powder</h3>
+      <select onchange="updatePrice(this)">
+        <option value="300">250 GM – ₹300</option>
+        <option value="500">500 GM – ₹500</option>
+        <option value="800">1 KG – ₹800</option>
+      </select>
+      <div class="price">₹300</div>
+      <button onclick="order('Banana Powder',this)">Order on WhatsApp</button>
+    </div>
+
+    <!-- Amla -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1604908554164-3f84e9f7f96e" alt="Amla Powder">
+      <h3>Amla Powder</h3>
+      <select onchange="updatePrice(this)">
+        <option value="280">250 GM – ₹280</option>
+        <option value="550">500 GM – ₹550</option>
+        <option value="800">1 KG – ₹800</option>
+      </select>
+      <div class="price">₹280</div>
+      <button onclick="order('Amla Powder',this)">Order on WhatsApp</button>
+    </div>
+
+    <!-- Beetroot -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1584270354949-1c8a4a41f3c5" alt="Beetroot Powder">
+      <h3>Beetroot Powder</h3>
+      <select onchange="updatePrice(this)">
+        <option value="260">250 GM – ₹260</option>
+        <option value="500">500 GM – ₹500</option>
+        <option value="800">1 KG – ₹800</option>
+      </select>
+      <div class="price">₹260</div>
+      <button onclick="order('Beetroot Powder',this)">Order on WhatsApp</button>
+    </div>
+
+    <!-- Carrot -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1582515073490-39981397c445" alt="Carrot Powder">
+      <h3>Carrot Powder</h3>
+      <select onchange="updatePrice(this)">
+        <option value="300">250 GM – ₹300</option>
+        <option value="550">500 GM – ₹550</option>
+        <option value="900">1 KG – ₹900</option>
+      </select>
+      <div class="price">₹300</div>
+      <button onclick="order('Carrot Powder',this)">Order on WhatsApp</button>
+    </div>
+
+    <!-- ABC Powder -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1615486363973-f79d875ba8a6" alt="ABC Powder">
+      <h3>ABC Powder (Apple • Beetroot • Carrot)</h3>
+      <select onchange="updatePrice(this)">
+        <option value="400">250 GM – ₹400</option>
+        <option value="650">500 GM – ₹650</option>
+        <option value="1100">1 KG – ₹1100</option>
+      </select>
+      <div class="price">₹400</div>
+      <button onclick="order('ABC Powder',this)">Order on WhatsApp</button>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>📞 6300729913 | ✉️ fruitsoul09@gmail.com</p>
+  <p>© 2026 FruitSoul</p>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/916300729913" target="_blank">💬</a>
+
+<script>
+  function updatePrice(select){
+    const priceDiv = select.parentElement.querySelector('.price');
+    priceDiv.textContent = '₹' + select.value;
+  }
+
+  function order(product,btn){
+    const card = btn.parentElement;
+    const sizeText = card.querySelector('select').selectedOptions[0].text;
+    const price = card.querySelector('.price').textContent;
+    const msg = `Hello FruitSoul, I want to order ${product} (${sizeText}) for ${price}.`;
+    window.open('https://wa.me/916300729913?text=' + encodeURIComponent(msg));
+  }
+</script>
+
+</body>
+</html>
